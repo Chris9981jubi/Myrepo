@@ -1,188 +1,73 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+
+
+
 body {
-    display: flex;
-    padding: 0 10px;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: linear-gradient( #253d4d, #e0e8eb, #6e6b6b);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-size: 1000px;
+  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
+  background-position: center center;
 }
-#paragraph{
-    color: #646669;
+
+.paper {
+  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-size: 500px;
+  background-position: center center;
+  padding: 20px 100px;
+/*  min-width: 800px; */
+  
+  transform: rotateZ(-5deg);
+  box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
+  
+  position: absolute;
 }
-.result{
-    color: white;
+
+.paper.heart {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  border-radius: 50%;
 }
-::selection {
-    color: #fff;
-    background: #007acc;
+
+.paper.image {
+  padding: 10px;
 }
-.main-field {
-    width: 700px;
-    padding: 35px;
-    background: #423737;
-    border-radius: 20px;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+.paper.image p {
+  font-size: 30px;
 }
-.main-field .input-field {
-    opacity: 0;
-    z-index: -999;
-    position: absolute;
+
+img {
+  max-height: 200px;
+  width: 100%;
+  user-select: none;
 }
-.main-field .Content {
-    padding: 13px 20px 0;
-    border-radius: 10px;
-    border: 4px solid #0ddd0d;
+
+.paper.heart::after {
+  content: "";
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 150px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
 }
-.Content .content-box {
-    overflow: hidden;
-    max-height: 256px;
-}
-.content-box::-webkit-scrollbar {
-    width: 0;
-}
-.content-box p {
-    font-size: 21px;
-    text-align: justify;
-    letter-spacing: 1px;
-    word-break: break-all;
-}
-.content-box p span {
-    position: relative;
-}
-.content-box p span.correct {
-    color: #d1d0c5;
-}
-.content-box p span.incorrect {
-    color: #ca4754;
-    border-radius: 4px;
-}
-.content-box p span.active::before {
-    position: absolute;
-    content: "";
-    height: 2px;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    border-radius: 5px;
-    background: #1aff40;
-    animation: blink 1s ease-in-out infinite;
-}
-@keyframes blink {
-    50% {
-        opacity: 1;
-    }
-}
-.Content .content {
-    margin-top: 17px;
-    display: flex;
-    padding: 12px 0;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 3px solid #1aff40;
-}
-.content button {
-    outline: none;
-    border: none;
-    width: 105px;
-    color: #1aff40;
-    padding: 8px 0;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 15px;
-    border: 3px solid #1aff40;
-    background: none;
-    transition: transform 0.2s ease;
-}
-.content button:active {
-    transform: scale(0.89);
-}
-.content button:hover {
-    background: none;
-}
-.content .result {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width: calc(100% - 140px);
-    justify-content: space-between;
-}
-.result li {
-    display: flex;
-    height: 20px;
-    list-style: none;
-    position: relative;
-    align-items: center;
-}
-.result li:not(:first-child) {
-    padding-left: 22px;
-    border-left: 2px solid #1cff3b;
-}
-.result li p {
-    font-size: 13px;
-}
-.result li span {
-    display: block;
-    font-size: 13px;
-    margin-left: 10px;
-}
-li span b {
-    font-weight: 500;
-}
-li:not(:first-child) span {
-    font-weight: 500;
-}
-@media (max-width: 745px) {
-    .main-field {
-        padding: 20px;
-    }
-    .Content .content {
-        padding: 20px 0;
-    }
-    .Content .content-box {
-        max-height: 100%;
-    }
-    .content-box p {
-        font-size: 19px;
-        text-align: left;
-    }
-    .content button {
-        width: 100%;
-        font-size: 15px;
-        padding: 10px 0;
-        margin-top: 20px;
-    }
-    .content .result {
-        width: 100%;
-    }
-    .result li:not(:first-child) {
-        border-left: 0;
-        padding: 0;
-    }
-    .result li p,
-    .result li span {
-        font-size: 15px;
-    }
-}
-@media (max-width: 518px) {
-    .main-field .Content {
-        padding: 10px 15px 0;
-    }
-    .content-box p {
-        font-size: 13px;
-    }
-    .result li {
-        margin-bottom: 10px;
-    }
-    .content button {
-        margin-top: 10px;
-    }
+
+p {
+  font-family: 'Zeyada';
+  font-size: 50px;
+  color: rgb(0,0,100);
+  opacity: 0.75;
+  user-select: none;
+  
+  // filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
 }
